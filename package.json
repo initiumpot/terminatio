@@ -1,0 +1,42 @@
+{
+  "name": "@initiumpot/terminatio",
+  "version": "1.0.0",
+  "author": "Initium",
+  "description": "A logging library with node & browser color suppport that fits in less than 1kb",
+  "repository": "https://github.com/initiumpot/terminatio",
+  "publishConfig": {
+    "@initiumpot:registry": "https://npm.pkg.github.com/"
+  },
+  "module": "dist/esm/index.es.js",
+  "main": "dist/cjs/index.js",
+  "types": "src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "postinstall": "husky install",
+    "preinstall": "env-var npm config set '//npm.pkg.github.com/:_authToken' \"{{GITHUB_PACKAGES_TOKEN}}\"",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "build": "vite build",
+    "test": "vitest",
+    "watch": "vite build --watch",
+    "format": "prettier --config .prettierrc \"./**/*.{ts,jsx}\" --write",
+    "lint": "prettier --config .prettierrc \"./**/*.{ts,jsx}\" --check"
+  },
+  "devDependencies": {
+    "@rauschma/env-var": "^1.0.1",
+    "@tsconfig/strictest": "^1.0.2",
+    "@types/node": "^18.11.9",
+    "husky": "^8.0.2",
+    "pinst": "^3.0.0",
+    "prettier": "^2.7.1",
+    "rollup": "^3.2.5",
+    "typescript": "^4.5.3",
+    "vite": "^3.2.3",
+    "vite-plugin-progress": "^0.0.6",
+    "vite-tsconfig-paths": "^3.5.2",
+    "vitest": "^0.25.1"
+  }
+}
